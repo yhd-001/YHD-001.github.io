@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>严赫东 · 作品集 ｜ AI 应用开发</title>
+<meta name="description" content="严赫东，2027 届电子信息工程本科，AI Coding 工具深度使用者。4 个投入企业内网真实使用的工具与网页作品。">
+<style>
+:root{
+  --primary:#4f46e5; --primary-soft:#eef2ff; --violet:#7c3aed;
+  --ink:#1e293b; --ink2:#475569; --ink3:#94a3b8;
+  --line:#e2e8f0; --bg:#f5f7fb; --card:#fff; --soft:#f8fafc;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.4}
+.hero{background:#312e81;color:#fff;padding:52px 0 44px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-90px;top:-110px;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.06)}
+.hero .inner{position:relative;z-index:1}
+.badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 14px;font-size:12px;letter-spacing:.5px}
+.hero h1{font-size:36px;letter-spacing:3px;margin:14px 0 8px}
+.hero .role{font-size:17px;font-weight:600;color:#c7d2fe;margin-bottom:14px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13px;color:rgba(255,255,255,.9);margin-bottom:18px}
+.hero .lead{max-width:720px;font-size:14px;color:rgba(255,255,255,.92);background:rgba(255,255,255,.08);border-left:3px solid #a5b4fc;padding:12px 16px;border-radius:0 10px 10px 0}
+.hero .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-block;background:#fff;color:#312e81;font-weight:600;font-size:13px;padding:9px 18px;border-radius:999px;border:1px solid #fff}
+.btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9}
+nav .wrap{display:flex;gap:26px;align-items:center;height:52px;overflow-x:auto}
+nav a{font-size:13px;color:var(--ink2);white-space:nowrap}
+nav a:hover{color:var(--primary)}
+section{padding:44px 0 8px}
+.sec-head{margin-bottom:22px}
+.sec-head .kicker{font-size:12px;letter-spacing:2px;color:var(--primary);font-weight:600;text-transform:uppercase}
+.sec-head h2{font-size:22px;margin-top:4px}
+.sec-head p{color:var(--ink2);font-size:13px;margin-top:6px;max-width:760px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.flow .step{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 12px;text-align:center}
+.flow .num{display:inline-flex;width:24px;height:24px;align-items:center;justify-content:center;border-radius:50%;background:var(--primary-soft);color:var(--primary);font-size:12px;font-weight:700;margin-bottom:8px}
+.flow .t{font-size:13px;font-weight:700}
+.flow .d{font-size:12px;color:var(--ink2);margin-top:4px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.tool{background:var(--primary-soft);border:1px solid #c7d2fe;border-radius:10px;padding:10px 14px;font-size:13px}
+.tool b{color:var(--primary)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.proj-top{padding:20px 22px 14px}
+.proj-top .idx{font-size:11px;letter-spacing:1.5px;color:var(--ink3);font-weight:700}
+.proj-top h3{font-size:18px;margin:4px 0 8px}
+.proj-top .kind{display:inline-block;font-size:11px;color:var(--primary);background:var(--primary-soft);border-radius:6px;padding:2px 9px;margin-right:6px}
+.shot{margin:0 22px 16px;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
+.shot-bar{height:26px;background:#f1f5f9;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:5px;padding:0 10px}
+.shot-bar i{width:7px;height:7px;border-radius:50%;background:#cbd5e1;display:block}
+.shot-bar span{font-size:10px;color:var(--ink3);margin-left:8px}
+.shot img{width:100%;display:block}
+.shot-body{padding:14px;height:118px;background:linear-gradient(0deg,#fafbfe,#fff)}
+.cap{font-size:10px;color:var(--ink3);text-align:right;padding:0 22px 12px}
+.rows{display:flex;gap:6px;align-items:center;margin-bottom:7px}
+.rows .g{height:9px;border-radius:3px;background:#e2e8f0}
+.rows .g.hi{background:#c7d2fe}
+.rows .g.gr{background:#a7f3d0}
+.rows .g.am{background:#fde68a}
+.mini-tbl{width:100%;border-collapse:collapse;font-size:10px;color:var(--ink2)}
+.mini-tbl td,.mini-tbl th{border:1px solid #e8edf5;padding:4px 6px;text-align:left}
+.mini-tbl th{background:#eef2ff;color:var(--primary)}
+.chart{display:flex;align-items:flex-end;gap:10px;height:88px;padding:0 6px}
+.chart i{flex:1;background:linear-gradient(180deg,#a5b4fc,#6366f1);border-radius:4px 4px 0 0;display:block}
+.card-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.card-tiles div{height:42px;border-radius:8px;background:#e0e7ff}
+.card-tiles div:nth-child(2){background:#fce7f3}
+.card-tiles div:nth-child(3){background:#d1fae5}
+.proj-body{padding:0 22px 20px;flex:1}
+.proj-body dl{display:grid;grid-template-columns:52px 1fr;gap:6px 10px;font-size:13px;margin-bottom:14px}
+.proj-body dt{color:var(--primary);font-weight:700}
+.proj-body dd{color:var(--ink2)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;color:var(--ink2);background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+.landed{margin-top:12px;font-size:12px;color:#0f6e56;background:#e7f5ee;border-left:3px solid #1d9e75;border-radius:0 6px 6px 0;padding:7px 10px}
+.two{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.timeline{border-left:2px solid #c7d2fe;padding-left:18px;margin-top:8px}
+.tl-item{margin-bottom:16px}
+.tl-item .t{font-size:13px;font-weight:700}
+.tl-item .d{font-size:13px;color:var(--ink2);margin-top:3px}
+.kv{font-size:13px;color:var(--ink2);margin-top:8px}
+.kv b{color:var(--ink)}
+.contact{background:#312e81;color:#fff;border-radius:var(--radius);padding:28px 30px;margin:36px 0 20px}
+.contact h2{font-size:20px;margin-bottom:8px}
+.contact p{font-size:13px;color:rgba(255,255,255,.86);margin-bottom:16px}
+.foot{border-top:1px solid var(--line);padding:18px 0 36px;font-size:12px;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(max-width:760px){
+  .hero{padding:36px 0 32px}.hero h1{font-size:28px}
+  .grid,.two,.flow{grid-template-columns:1fr}
+  .flow{gap:8px}.flow .step{display:flex;align-items:center;gap:12px;text-align:left;padding:10px 14px}
+  .flow .num{margin:0}.flow .d{margin:0 0 0 auto;text-align:right}
+  section{padding:32px 0 4px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap inner">
+    <span class="badge">2027 届 · 本科 · 软件开发 / AI 应用开发</span>
+    <h1>严赫东</h1>
+    <div class="role">用 AI 把业务需求做成可用的工具</div>
+    <div class="meta">
+      <span>湖南工商大学 · 电子信息工程 · 本科</span>
+      <span>GPA 3.31 / 4.0（专业前 15%）</span>
+      <span>16670717568</span>
+      <span>1576754632@qq.com</span>
+    </div>
+    <div class="lead">以 <b>WorkBuddy</b>（需求拆解、方案设计、调试排错）+ <b>Codex</b>（代码生成、重构优化）为主力工具链，独立走完「需求 → AI 辅助开发 → 测试优化 → 部署上线」全流程。实习期间开发并交付 4 个程序与网页，全部投入公司内网真实业务使用，而非课程作业或 Demo。</div>
+    <div class="actions">
+      <a class="btn" href="#projects">看 4 个作品</a>
+      <a class="btn ghost" href="wms-demo.html">▶ 在线体验仓管系统</a>
+      <a class="btn ghost" href="严赫东-简历.pdf" download>下载简历 PDF</a>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#about">工作方式</a>
+  <a href="#projects">作品（4）</a>
+  <a href="wms.html">仓管系统案例</a>
+  <a href="#intern">实习经历</a>
+  <a href="#contact">联系我</a>
+</div></nav>
+
+<div class="wrap">
+
+<section id="about">
+  <div class="sec-head">
+    <div class="kicker">How I work</div>
+    <h2>我不是只写提示词，而是把工具交付到业务里</h2>
+    <p>4 个成果都来自真实工作场景：先到现场搞清楚人怎么干活、卡在哪一步，再决定做成桌面程序、网页还是带数据同步的 Web 系统。</p>
+  </div>
+  <div class="panel">
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div class="t">需求</div><div class="d">现场访谈，拆出重复劳动</div></div>
+      <div class="step"><div class="num">2</div><div class="t">AI 辅助开发</div><div class="d">WorkBuddy 设计 + Codex 生成</div></div>
+      <div class="step"><div class="num">3</div><div class="t">测试优化</div><div class="d">逐段验证、纠错、重构</div></div>
+      <div class="step"><div class="num">4</div><div class="t">部署上线</div><div class="d">内网上线，持续按反馈改</div></div>
+    </div>
+    <div class="tools">
+      <div class="tool"><b>WorkBuddy</b>　需求拆解 / 方案设计 / 调试排错</div>
+      <div class="tool"><b>Codex</b>　代码生成 / 重构优化</div>
+      <div class="tool"><b>AI Coding</b>　能读懂、验证并重构 AI 生成的代码</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-head">
+    <div class="kicker">Projects</div>
+    <h2>4 个投入内网实际使用的成果</h2>
+    <p>以下内容均来自 2026.06–09 实习期间独立完成并交付的工具。仓管系统提供真实运行截图、完整案例页与可点击的在线演示；其余三个项目的界面为结构示意，非实拍截图。</p>
+  </div>
+  <div class="grid">
+
+    <article class="proj">
+      <div class="proj-top">
+        <div class="idx">PROJECT 01</div>
+        <h3>快捷框图识字工具</h3>
+        <span class="kind">桌面程序</span><span class="kind">OCR</span><span class="kind">Python</span>
+      </div>
+      <!-- 其余项目如需换成实拍截图，把下面 .shot 整块替换为 img 标签即可 -->
+      <div class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>框图识字 · 工单识别</span></div>
+        <div class="shot-body">
+          <div class="rows"><div class="g" style="width:38%"></div><div class="g hi" style="width:22%"></div></div>
+          <div class="rows"><div class="g" style="width:52%"></div><div class="g gr" style="width:16%"></div></div>
+          <div class="rows"><div class="g" style="width:30%"></div><div class="g am" style="width:34%"></div></div>
+          <div class="rows"><div class="g" style="width:44%"></div><div class="g hi" style="width:18%"></div></div>
+          <div class="rows"><div class="g" style="width:26%"></div><div class="g gr" style="width:28%"></div></div>
+        </div>
+      </div>
+      <div class="cap">界面结构示意</div>
+      <div class="proj-body">
+        <dl>
+          <dt>问题</dt><dd>电子工单与框图里的文字需要人工逐条抄录，重复且容易出错。</dd>
+          <dt>我做的</dt><dd>用 OCR 识别技术做桌面程序，自动提取工单与框图文字并输出可编辑结果，替代手工录入。</dd>
+        </dl>
+        <div class="tags"><span class="tag">Python</span><span class="tag">OCR 识别</span><span class="tag">桌面程序</span><span class="tag">信息录入</span></div>
+        <div class="landed">已投入公司内网实际使用</div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-top">
+        <div class="idx">PROJECT 02</div>
+        <h3>生日团建网页</h3>
+        <span class="kind">前端页面</span><span class="kind">可视化交互</span>
+      </div>
+      <div class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>团建互动页</span></div>
+        <div class="shot-body">
+          <div class="rows"><div class="g hi" style="width:46%;height:12px"></div></div>
+          <div class="card-tiles"><div></div><div></div><div></div></div>
+          <div class="rows" style="margin-top:12px"><div class="g gr" style="width:28%;height:8px"></div><div class="g am" style="width:20%;height:8px"></div></div>
+        </div>
+      </div>
+      <div class="cap">界面结构示意</div>
+      <div class="proj-body">
+        <dl>
+          <dt>问题</dt><dd>部门团建活动缺少一个即开即用、能让大家参与的互动页面。</dd>
+          <dt>我做的</dt><dd>纯前端实现可视化团建互动页面，HTML/CSS/JavaScript 完成布局和交互，无需后端、打开即用。</dd>
+        </dl>
+        <div class="tags"><span class="tag">HTML / CSS / JS</span><span class="tag">可视化交互</span><span class="tag">零后端</span></div>
+        <div class="landed">已投入公司内网实际使用</div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-top">
+        <div class="idx">PROJECT 03</div>
+        <h3>云端仓管系统</h3>
+        <span class="kind">Web 系统</span><span class="kind">数据同步</span><span class="kind">Node.js</span><span class="kind">真实截图</span>
+      </div>
+      <div class="shot" style="margin:0 22px 0;border-radius:10px">
+        <a href="wms.html"><img src="wms-01.png" alt="仓管系统总览仪表盘真实截图" style="width:100%;display:block"></a>
+      </div>
+      <div class="cap" style="padding-top:8px">真实运行截图 · 已脱敏　<a href="wms.html" style="color:var(--primary);font-weight:700">查看完整案例 →</a></div>
+      <div class="proj-body">
+        <dl>
+          <dt>问题</dt><dd>元器件出入库与库存靠人工登记，多人同时使用时数据不同步。</dd>
+          <dt>我做的</dt><dd>用 Node.js 原生模块自建 HTTP 服务与 34 个接口，做带角色权限、多班组独立库存、Excel 导入导出与数据分析的 B/S 系统，兼容内网 Win7 离线环境。</dd>
+        </dl>
+        <div class="tags"><span class="tag">Web 系统</span><span class="tag">出入库 / 库存</span><span class="tag">多人访问</span><span class="tag">数据同步</span><span class="tag">10 万级物料</span><span class="tag">零第三方依赖</span></div>
+        <div class="landed">已投入公司内网实际使用　·　<a href="wms-demo.html" style="color:#0f6e56;font-weight:700;text-decoration:underline">在线交互演示 ↗</a></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-top">
+        <div class="idx">PROJECT 04</div>
+        <h3>工时筛查分类程序</h3>
+        <span class="kind">数据处理</span><span class="kind">统计报表</span><span class="kind">Python</span>
+      </div>
+      <div class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>工时筛查 · 分类统计</span></div>
+        <div class="shot-body">
+          <div class="chart"><i style="height:52%"></i><i style="height:78%"></i><i style="height:36%"></i><i style="height:90%"></i><i style="height:62%"></i><i style="height:44%"></i></div>
+          <div class="rows" style="margin-top:9px"><div class="g" style="width:22%"></div><div class="g hi" style="width:18%"></div><div class="g gr" style="width:14%"></div></div>
+        </div>
+      </div>
+      <div class="cap">界面结构示意</div>
+      <div class="proj-body">
+        <dl>
+          <dt>问题</dt><dd>工时数据需要人工逐条核对、归类，再手工汇总统计。</dd>
+          <dt>我做的</dt><dd>做自动筛查、归类与统计工具，对工时数据做校验和异常筛查，输出可复核的结果报表。</dd>
+        </dl>
+        <div class="tags"><span class="tag">Python</span><span class="tag">数据筛查</span><span class="tag">分类统计</span><span class="tag">报表输出</span></div>
+        <div class="landed">已投入公司内网实际使用</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="intern">
+  <div class="sec-head">
+    <div class="kicker">Experience</div>
+    <h2>实习经历：一边调试芯片，一边给同事做工具</h2>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <div class="timeline">
+        <div class="tl-item"><div class="t">2026.06 – 2026.09　长沙景嘉微电子有限公司 · 调试工程师实习生</div>
+          <div class="d">承担芯片上电初测、功能验证与元器件参数抽检，使用万用表、示波器、逻辑分析仪完成信号测量，排查虚焊、电源短路、传感器信号异常等故障；建立调试故障台账，配合研发完成整机软硬件联调与样机返修整改。</div></div>
+        <div class="tl-item"><div class="t">同期 · AI 工具开发（主线）</div>
+          <div class="d">借助 WorkBuddy + Codex 独立开发上述 4 个程序与网页并交付内网使用，以工具替代重复人工劳动。</div></div>
+        <div class="tl-item"><div class="t">2026.08　获评优秀实习生</div>
+          <div class="d">实习表现获部门认可，获颁优秀实习生荣誉证书。</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3 style="font-size:15px;margin-bottom:10px">能力速览</h3>
+      <div class="kv"><b>AI 工具链</b>　WorkBuddy + Codex（AI Coding）</div>
+      <div class="kv"><b>开发</b>　Python、HTML/CSS/JavaScript、桌面工具、小型 Web 系统</div>
+      <div class="kv"><b>数据</b>　出入库 / 库存业务数据、工时数据清洗与统计、Excel 报表</div>
+      <div class="kv"><b>硬件基础</b>　51 / STM32、FPGA、Keil5、电路故障排查</div>
+      <div class="kv"><b>工程习惯</b>　调试台账、数据记录、结果复核、报告输出</div>
+      <div class="kv" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line)"><b>差异化</b>　电子信息工程科班 + 芯片调试现场经验 + AI 工具开发闭环，懂业务也写代码。</div>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <h2>想看更多细节？直接联系我</h2>
+  <p>仓管系统可在本站直接在线体验；其余工具的界面演示、实现思路与代码说明可在面试或邮件中提供。简历 PDF 可在本页顶部直接下载。</p>
+  <div class="actions">
+    <a class="btn" href="mailto:1576754632@qq.com?subject=校招-软件开发/AI应用开发-严赫东">发邮件</a>
+    <a class="btn ghost" href="严赫东-简历.pdf" download>下载简历 PDF</a>
+  </div>
+</div>
+
+<div class="foot">
+  <span>严赫东 · 作品集 ｜ 单 HTML 文件，托管于 GitHub Pages</span>
+  <span>更新于 2026-11</span>
+</div>
+
+</div>
+</body>
+</html>
