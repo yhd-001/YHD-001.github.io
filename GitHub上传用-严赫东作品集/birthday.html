@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>团队生日会互动页 · 项目案例 ｜ 严赫东</title>
+<style>
+:root{--primary:#4f46e5;--soft:#eef2ff;--ink:#1e293b;--ink2:#475569;--ink3:#94a3b8;--line:#e2e8f0;--bg:#f5f7fb;--card:#fff;--r:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:14px}
+a{color:var(--primary);text-decoration:none}.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.top{background:#312e81;color:#fff;padding:36px 0 34px}
+.top .back{color:#c7d2fe;font-size:13px}.top h1{font-size:30px;margin:12px 0 8px;letter-spacing:1px}
+.top p{color:rgba(255,255,255,.9);font-size:14px;max-width:760px}
+.btn{display:inline-block;background:#fff;color:#312e81;font-weight:700;font-size:13px;padding:9px 20px;border-radius:999px;margin-top:16px;margin-right:8px}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+section{padding:34px 0 0}h2{font-size:19px;margin-bottom:12px;padding-left:11px;border-left:4px solid var(--primary)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+.kpi{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--primary);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:22px;color:var(--primary)}.kpi span{font-size:12px;color:var(--ink2)}
+.arch{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;align-items:center;gap:6px;margin:6px 0 4px}
+.arch .box{background:var(--soft);border:1px solid #c7d2fe;border-radius:10px;padding:14px 10px;text-align:center}
+.arch .box b{display:block;font-size:14px}.arch .box span{font-size:11.5px;color:var(--ink2)}
+.arch .ar{text-align:center;color:var(--primary);font-size:20px;font-weight:700}
+.mods{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
+.mod{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.mod b{font-size:13px}.mod span{display:block;font-size:12px;color:var(--ink2);margin-top:3px}
+ul{padding-left:20px}li{margin-bottom:8px;color:var(--ink2)}li b{color:var(--ink)}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px}
+.shotcard{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.shotcard a{display:block}.shotcard img{width:100%;display:block}
+.shotcard .cap{font-size:12px;color:var(--ink2);padding:8px 12px;border-top:1px solid var(--line)}
+.note{background:#fffbeb;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:12px 14px;font-size:13px;color:#92400e}
+.foot{border-top:1px solid var(--line);margin-top:36px;padding:18px 0 40px;font-size:12px;color:var(--ink3)}
+@media(max-width:760px){.kpis,.mods,.shots{grid-template-columns:1fr}.arch{grid-template-columns:1fr}.arch .ar{transform:rotate(90deg)}.top h1{font-size:24px}}
+</style></head><body>
+<div class="top"><div class="wrap">
+  <a class="back" href="index.html">← 返回作品集</a>
+  <h1>团队生日会互动页</h1>
+  <p>一次部门团建活动的现场互动网页：单文件 HTML、零后端、零第三方依赖，双击即用。覆盖名单管理、随机抽奖、锦鲤奖池、任务与祝福、Canvas 烟花与后台配置，已在部门活动中实际使用。</p>
+  <a class="btn" href="birthday-demo.html">▶ 在线交互演示</a>
+  <a class="btn ghost" href="严赫东-简历.pdf" download>下载简历 PDF</a>
+</div></div>
+<div class="wrap">
+
+<section><h2>一、规模与关键数字</h2>
+<div class="kpis">
+  <div class="kpi"><b>1</b><span>单 HTML 文件，零依赖</span></div>
+  <div class="kpi"><b>1,538</b><span>前端代码行数</span></div>
+  <div class="kpi"><b>7</b><span>类可配置项（名单 / 任务 / 祝福 / 奖品…）</span></div>
+  <div class="kpi"><b>0</b><span>后端接口 / 数据库</span></div>
+</div>
+<div class="kpis" style="margin-top:12px">
+  <div class="kpi"><b>15</b><span>内置互动任务</span></div>
+  <div class="kpi"><b>20</b><span>内置祝福语</span></div>
+  <div class="kpi"><b>3</b><span>奖项 + 锦鲤奖池</span></div>
+  <div class="kpi"><b>localStorage</b><span>配置本地持久化</span></div>
+</div>
+</section>
+
+<section><h2>二、要解决的问题</h2>
+<div class="panel">
+  <p style="color:var(--ink2)">部门生日会需要一个投屏就能带动全场的互动页面：要能现场抽人、抽任务、送祝福，还要能随时改名单和奖品。现场不可能临时搭服务、装环境或联网，所以做成<b>一个 HTML 文件发过去双击就能跑</b>；活动组织者不是开发，名单、任务、奖品、标题都得能在页面上直接改，改完立刻生效、刷新也不丢。</p>
+</div></section>
+
+<section><h2>三、实现方式</h2>
+<div class="panel">
+  <div class="arch">
+    <div class="box"><b>单页交互层</b><span>HTML / CSS / 原生 JS<br>三卡滚动抽奖 · 结果弹窗</span></div>
+    <div class="ar">→</div>
+    <div class="box"><b>状态与池</b><span>名单 / 任务 / 祝福 / 奖品四组池<br>不重复抽取，耗尽自动补充</span></div>
+    <div class="ar">→</div>
+    <div class="box"><b>本地持久化</b><span>localStorage 数据版本 v12<br>后台配置即时同步到奖池</span></div>
+  </div>
+  <p style="color:var(--ink2);margin-top:14px">整套程序没有引入任何框架、CDN 或构建工具：动画用 Canvas + requestAnimationFrame，音效由 Web Audio 振荡器实时合成，配置存在浏览器 localStorage。现场只需一个浏览器，不需要服务端、不需要网络，也不需要安装任何东西。</p>
+</div></section>
+
+<section><h2>四、功能模块</h2>
+<div class="mods">
+  <div class="mod"><b>◈ 三卡滚动抽奖</b><span>开始 / 停止双按钮控制，滚动速度递增，停牌后锁定寿星与任务</span></div>
+  <div class="mod"><b>🐟 锦鲤奖池</b><span>可设中奖总数，抽奖时随机分配，抽完即止，不超发</span></div>
+  <div class="mod"><b>✉ 祝福与任务</b><span>15 条互动任务 + 20 条祝福语随机组合，结果弹窗分色高亮展示</span></div>
+  <div class="mod"><b>🎆 Canvas 烟花</b><span>粒子重力与拖尾动画，中奖时触发连发礼花，窗口缩放自适应</span></div>
+  <div class="mod"><b>🔊 Web Audio 音效</b><span>振荡器实时合成中奖提示音，用增益包络淡入淡出消除开关爆音</span></div>
+  <div class="mod"><b>⚙ 后台管理面板</b><span>页面标题 / 期数、名单、任务、祝福语、奖品、锦鲤数量、管理密码均可配置</span></div>
+  <div class="mod"><b>💾 本地数据</b><span>带版本号的数据结构、增删改查、重置与导入，刷新不丢配置</span></div>
+  <div class="mod"><b>🔒 轻量登录</b><span>齿轮入口 + 口令校验，避免现场误触改动奖池配置</span></div>
+</div>
+</section>
+
+<section><h2>五、技术难点与我的处理</h2>
+<div class="panel"><ul>
+  <li><b>不重复抽取</b>：维护剩余名单 / 任务 / 祝福三个独立池，抽出即从池移除；池耗尽时自动重置并洗牌，避免同一轮重复或中途卡死。</li>
+  <li><b>后台改动不打断进行中的抽奖</b>：仅在未开始抽奖时立即同步奖池，进行中的一轮沿用已加载的池，防止现场改名单导致结果错乱。</li>
+  <li><b>配置刷新不丢</b>：统一 <code>loadData / saveData</code> 读写 localStorage，带数据版本号，默认值与用户配置分离，重置可一键回到初始状态。</li>
+  <li><b>音效爆音</b>：不直接开关振荡器，改用 <code>setValueAtTime + exponentialRampToValueAtTime</code> 做淡入淡出包络，消除「咔」声。</li>
+  <li><b>零依赖约束</b>：图表、动画、音效、弹窗全部原生实现，不引 CDN，保证内网离线环境与任意一台电脑双击即可运行。</li>
+</ul></div></section>
+
+<section><h2>六、真实运行截图</h2>
+<div class="shots">
+  <div class="shotcard"><a href="bd-01.png"><img src="bd-01.png" alt="生日会互动页主界面真实截图"></a><div class="cap">主界面 · 三卡抽奖与标题栏（演示版已脱敏）</div></div>
+  <div class="shotcard"><a href="bd-02.png"><img src="bd-02.png" alt="开奖结果弹窗真实截图"></a><div class="cap">开奖结果 · 寿星 / 任务 / 祝福 / 锦鲤大奖</div></div>
+  <div class="shotcard"><a href="bd-03.png"><img src="bd-03.png" alt="后台管理面板真实截图"></a><div class="cap">后台管理 · 名单、任务、祝福、奖品与密码配置</div></div>
+</div>
+</section>
+
+<section><h2>七、公开展示版做了哪些处理</h2>
+<div class="note">
+本页与在线演示均为<b>脱敏展示副本</b>，桌面上的原始程序未做任何修改：去除部门名称与活动期数、名单保持示例姓名、管理口令改为演示口令、<b>移除 3 个背景音乐文件以避免公开传播的版权风险</b>（页面内置的 Web Audio 合成音效保留）。演示数据只保存在访问者自己的浏览器里，不含任何真实员工信息、内部账号或业务数据。
+</div></section>
+
+<div class="foot">严赫东 · 作品集　|　<a href="index.html">返回首页</a>　|　<a href="birthday-demo.html">在线交互演示</a></div>
+</div></body></html>

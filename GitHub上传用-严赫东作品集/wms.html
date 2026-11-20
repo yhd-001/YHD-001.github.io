@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>生产部仓管系统 · 项目案例 ｜ 严赫东</title>
+<style>
+:root{--primary:#4f46e5;--soft:#eef2ff;--ink:#1e293b;--ink2:#475569;--ink3:#94a3b8;--line:#e2e8f0;--bg:#f5f7fb;--card:#fff;--r:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:14px}
+a{color:var(--primary);text-decoration:none}.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.top{background:#312e81;color:#fff;padding:36px 0 34px}
+.top .back{color:#c7d2fe;font-size:13px}.top h1{font-size:30px;margin:12px 0 8px;letter-spacing:1px}
+.top p{color:rgba(255,255,255,.9);font-size:14px;max-width:760px}
+.btn{display:inline-block;background:#fff;color:#312e81;font-weight:700;font-size:13px;padding:9px 20px;border-radius:999px;margin-top:16px;margin-right:8px}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+section{padding:34px 0 0}h2{font-size:19px;margin-bottom:12px;padding-left:11px;border-left:4px solid var(--primary)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+.kpi{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--primary);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:22px;color:var(--primary)}.kpi span{font-size:12px;color:var(--ink2)}
+.arch{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;align-items:center;gap:6px;margin:6px 0 4px}
+.arch .box{background:var(--soft);border:1px solid #c7d2fe;border-radius:10px;padding:14px 10px;text-align:center}
+.arch .box b{display:block;font-size:14px}.arch .box span{font-size:11.5px;color:var(--ink2)}
+.arch .ar{text-align:center;color:var(--primary);font-size:20px;font-weight:700}
+.mods{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
+.mod{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.mod b{font-size:13px}.mod span{display:block;font-size:12px;color:var(--ink2);margin-top:3px}
+ul{padding-left:20px}li{margin-bottom:8px;color:var(--ink2)}li b{color:var(--ink)}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px}
+.shotcard{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.shotcard a{display:block}.shotcard img{width:100%;display:block}
+.shotcard .cap{font-size:12px;color:var(--ink2);padding:8px 12px;border-top:1px solid var(--line)}
+.note{background:#fffbeb;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:12px 14px;font-size:13px;color:#92400e}
+.foot{border-top:1px solid var(--line);margin-top:36px;padding:18px 0 40px;font-size:12px;color:var(--ink3)}
+@media(max-width:760px){.kpis,.mods,.shots{grid-template-columns:1fr}.arch{grid-template-columns:1fr}.arch .ar{transform:rotate(90deg)}.top h1{font-size:24px}}
+</style></head><body>
+<div class="top"><div class="wrap">
+  <a class="back" href="index.html">← 返回作品集</a>
+  <h1>生产部仓管系统</h1>
+  <p>面向车间元器件仓储场景的 B/S 业务系统：Node.js 原生模块零第三方依赖，覆盖出入库、多班组库存、领用流水、补货预警与数据分析，兼容 Windows 7 内网环境，已在生产部实际投入使用。</p>
+  <a class="btn" href="wms-demo.html">▶ 在线交互演示</a>
+  <a class="btn ghost" href="严赫东-简历.pdf" download>下载简历 PDF</a>
+</div></div>
+<div class="wrap">
+
+<section><h2>一、规模与关键数字</h2>
+<div class="kpis">
+  <div class="kpi"><b>100,000</b><span>物料种类（演示数据规模）</span></div>
+  <div class="kpi"><b>113,877</b><span>出入库流水记录</span></div>
+  <div class="kpi"><b>4</b><span>并行班组 / 独立库存</span></div>
+  <div class="kpi"><b>34</b><span>前后端 API 接口</span></div>
+</div>
+<div class="kpis" style="margin-top:12px">
+  <div class="kpi"><b>1,500+</b><span>服务端代码行数</span></div>
+  <div class="kpi"><b>1,360</b><span>前端单页代码行数</span></div>
+  <div class="kpi"><b>0</b><span>第三方运行时依赖</span></div>
+  <div class="kpi"><b>Win 7</b><span>目标运行环境</span></div>
+</div>
+</section>
+
+<section><h2>二、要解决的问题</h2>
+<div class="panel">
+  <p style="color:var(--ink2)">车间元器件出入库原先靠人工登记，多人、多班组同时操作时数据不同步；库存低于安全值没有提示，补货靠回忆；想看「哪个班组领用最多、哪些物料最常用」只能翻纸质台账。系统把这几件事统一到一套带账号权限的 Web 界面里，浏览器打开即用，不需要在每台工位机装客户端。</p>
+</div></section>
+
+<section><h2>三、技术架构</h2>
+<div class="panel">
+  <div class="arch">
+    <div class="box"><b>浏览器前端</b><span>单页 HTML/CSS/JS<br>Chart.js 图表 · SheetJS Excel</span></div>
+    <div class="ar">→</div>
+    <div class="box"><b>Node.js HTTP 服务</b><span>原生 http / fs / crypto<br>34 个 REST 接口 · Cookie 会话</span></div>
+    <div class="ar">→</div>
+    <div class="box"><b>JSON 持久化</b><span>物料 / 班组 / 流水 / 账号<br>同步落盘，单机内网可维护</span></div>
+  </div>
+  <p style="color:var(--ink2);margin-top:14px">服务端完全用 Node.js 内置模块实现，不装 Express、不装数据库、不依赖 npm 包；刻意避开 Node 14+ 语法以兼容 Windows 7 上的 Node 13.14。整套服务连同运行时可打包为便携目录，在内网离线机器上解压即用。</p>
+</div></section>
+
+<section><h2>四、功能模块</h2>
+<div class="mods">
+  <div class="mod"><b>▣ 总览仪表盘</b><span>今日领用、待补货数、班组数、物料总数 KPI；班组用量对比图与智能点评</span></div>
+  <div class="mod"><b>▤ 物料管理</b><span>十万级物料分页检索、按类别筛选、批量导入导出与批量删除</span></div>
+  <div class="mod"><b>⇄ 领用 / 归还</b><span>按物料与班组登记出入库，联动库存增减，记录操作人与工单号</span></div>
+  <div class="mod"><b>▦ 补货 / 班组</b><span>多班组独立库存台账、阈值预警、补货建议与班组维护</span></div>
+  <div class="mod"><b>☰ 操作流水</b><span>全量出入库记录查询、按时间 / 班组 / 物料追溯</span></div>
+  <div class="mod"><b>◫ 数据分析</b><span>用量趋势、类别占比、热门物料、班组热度与补货紧迫度多维统计</span></div>
+  <div class="mod"><b>⚙ 系统设置</b><span>账号与角色权限、密码修改、仓库名称与预警阈值、数据备份与恢复</span></div>
+  <div class="mod"><b>🔒 会话与权限</b><span>SHA-256 加盐口令、HttpOnly Cookie 会话、管理员 / 普通用户分级</span></div>
+</div>
+</section>
+
+<section><h2>五、技术难点与我的处理</h2>
+<div class="panel"><ul>
+  <li><b>老旧环境约束</b>：目标机器是内网 Windows 7，不能联网装依赖。选用 Node.js 原生模块自建 HTTP 服务与路由，全程避开可选链等新语法，前端库随包本地部署。</li>
+  <li><b>十万级数据的响应速度</b>：物料与流水记录到十万量级后，全表渲染会卡死。改为服务端分页 + 条件查询，统计类接口先聚合再返回，前端只画当前页与聚合结果。</li>
+  <li><b>多班组库存一致性</b>：领用、归还、补货都要同时改主库存与班组库存并写流水，按单次请求内统一处理，避免只改一半产生对不上的账。</li>
+  <li><b>数据可迁移与可复核</b>：Excel 批量导入导出便于与既有台账对接；操作流水保留操作人、时间与数量，任何库存变化都能倒查；提供整体备份 / 恢复。</li>
+  <li><b>AI 协作方式</b>：用 WorkBuddy 拆解现场需求与数据模型、定位调试问题，用 Codex 生成与重构代码；每段生成结果逐段验证、对照实际台账数据校验，再合入系统。</li>
+</ul></div></section>
+
+<section><h2>六、真实运行截图</h2>
+<div class="shots"><div class="shotcard"><a href="wms-01.png" target="_blank"><img src="wms-01.png" alt="总览仪表盘"></a><div class="cap">总览仪表盘 · 真实运行截图（已脱敏）</div></div>
+<div class="shotcard"><a href="wms-02.png" target="_blank"><img src="wms-02.png" alt="物料管理"></a><div class="cap">物料管理 · 真实运行截图（已脱敏）</div></div>
+<div class="shotcard"><a href="wms-03.png" target="_blank"><img src="wms-03.png" alt="数据分析"></a><div class="cap">数据分析 · 真实运行截图（已脱敏）</div></div>
+<div class="shotcard"><a href="wms-04.png" target="_blank"><img src="wms-04.png" alt="操作流水"></a><div class="cap">操作流水 · 真实运行截图（已脱敏）</div></div>
+<div class="shotcard"><a href="wms-05.png" target="_blank"><img src="wms-05.png" alt="补货与班组"></a><div class="cap">补货与班组 · 真实运行截图（已脱敏）</div></div></div>
+<p style="font-size:12px;color:var(--ink3);margin-top:10px">点击图片可查看原图。截图取自系统实际运行界面，已做脱敏处理。</p>
+</section>
+
+<section><h2>七、关于公开范围的说明</h2>
+<div class="note">本页与在线演示版仅展示<b>界面、功能与脱敏演示数据</b>。原系统含实习单位名称、内部标识与业务台账，生产环境的源码、真实数据、账号与部署包<b>未在公开仓库中提供</b>；如需查看实现细节，可在面试或邮件沟通中提供代码讲解与现场演示。</div>
+</section>
+
+<div class="foot"><span>严赫东 · 作品集 ｜ 生产部仓管系统案例</span><span>更新于 2026-11</span></div>
+</div></body></html>
